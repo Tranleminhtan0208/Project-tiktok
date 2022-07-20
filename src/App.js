@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
+import Content from './Content'
 
 const gifts = [
   'CPU i9',       // 0 
@@ -7,21 +8,28 @@ const gifts = [
 ]
 
 function App () {
+  
+  const [state,setState] = useState()
+  const [name, setName] = useState()
+  console.log(state);
 
-  const [gift,setGift] = useState()
+  const handleClick = () => {
 
-  const handle = () => {
-    const index = Math.floor(Math.random() * gifts.length)
-    setGift(gifts[index])
   }
+ return (
+  <div >
+      <input 
+      value= {state}
+      onChange = {(e) => setState(e.target.value)}
+      />
 
-  return (
-    <div className = "App">
-        <h1>{gift|| 'Chưa có phần thưởng'}</h1>
-        <button onClick = {handle}> Lấy thưởng</button>
-    </div>
-  )
+      <input  
+      value= {name}
+      onChange = {(e) => setName(e.target.value)}
+      />
+
+      <button onClick = {handleClick}>Register</button>
+  </div>
+ )
 }
-
-
 export default App;
